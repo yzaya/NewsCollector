@@ -40,8 +40,11 @@ for item in soup.find_all("item"):
         results.append(result)
 results
 
+# Clean the array to add quotes at the beginning and end of the first column
+
+quoted_results = unquoted_data = [[re.sub(r'^"(.+)"$', r'\1', value) if col_index == 0 else value for col_index, value in enumerate(row)] for row in results]
 
 with open('googleNews.csv', "a", newline='') as f:
-    w = csv.writer(f,delimiter=",", quotechar='"')
-    for row in results:
+    w = csv.writer(f,delimiter=",", quotechar='"', quoting=csv.QUOTE_ALL)
+    for row in quoted_results:
         w.writerow(row)

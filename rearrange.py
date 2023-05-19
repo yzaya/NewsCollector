@@ -11,4 +11,4 @@ df[['title', 'source']] = df['title'].str.split(' - ', 1, expand=True)
 df = df.reindex(columns=['date','title','source', 'link'])
 
 # export to csv
-df.to_csv("pdtest.csv", index=False)
+df.to_csv("googleNews2.csv", index=False)
