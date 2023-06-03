@@ -8,7 +8,7 @@ GNews = "https://news.google.com/news/rss/headlines"
 r = urllib.request\
     .urlopen(GNews)
 xml = r.read() #the data on the website is already in an xml format
-parser = "xml.parser"
+parser = "html.parser"
 soup = BeautifulSoup(xml,parser)
 
 # View an xml layout of the data being held in the soup variable
